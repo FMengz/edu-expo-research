@@ -73,8 +73,7 @@ h1 {
 }
 
 main {
-  /* width: min(1920px, 100%); */
-  width: 77%;
+  width: min(1440px, 100%);
   margin: 0 auto;
   padding: 22px clamp(14px, 3vw, 40px) 48px;
 }
@@ -112,6 +111,8 @@ main {
   gap: 8px;
   overflow-x: auto;
   padding: 4px 0 14px;
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
 }
 
 .toolbar {
@@ -161,6 +162,7 @@ main {
   font: inherit;
   font-weight: 700;
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .tab.active {
@@ -219,6 +221,7 @@ main {
   background: #fff;
   border: 1px solid var(--line);
   border-radius: 8px;
+  -webkit-overflow-scrolling: touch;
 }
 
 .compare-table {
@@ -376,51 +379,174 @@ main {
 }
 
 @media (max-width: 760px) {
+  body {
+    font-size: 14px;
+  }
+
   .topbar {
     position: static;
     display: grid;
+    gap: 14px;
+    padding: 16px 14px;
+  }
+
+  h1 {
+    font-size: 24px;
   }
 
   .search {
     width: 100%;
   }
 
+  .search input {
+    min-height: 46px;
+    font-size: 16px;
+  }
+
+  main {
+    padding: 14px 10px 32px;
+  }
+
   .summary {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .summary div {
+    min-height: 64px;
+    padding: 12px 8px;
+    text-align: center;
+  }
+
+  .summary strong {
+    font-size: 22px;
+  }
+
+  .summary span {
+    margin-top: 5px;
+    font-size: 12px;
   }
 
   .toolbar {
     display: grid;
+    gap: 10px;
     justify-content: stretch;
+    margin: 0 0 10px;
   }
 
   .control-group {
     display: grid;
     grid-template-columns: auto 1fr 1fr;
+    gap: 6px;
+  }
+
+  .control-group span {
+    font-size: 12px;
   }
 
   .view-button {
     width: 100%;
+    min-height: 40px;
+    padding: 8px 6px;
+    font-size: 14px;
+  }
+
+  .tabs {
+    gap: 6px;
+    margin: 0 -10px;
+    padding: 2px 10px 12px;
+  }
+
+  .tab {
+    min-height: 40px;
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+
+  .section {
+    gap: 10px;
+  }
+
+  .section + .section {
+    margin-top: 16px;
+  }
+
+  .section-head {
+    display: grid;
+    gap: 4px;
+    align-items: start;
+    padding: 8px 2px;
+  }
+
+  .section-head h2 {
+    font-size: 19px;
+  }
+
+  .section-head p {
+    font-size: 13px;
   }
 
   .grid {
     grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .card {
+    min-height: 0;
+    padding: 13px;
+  }
+
+  .card-title {
+    font-size: 17px;
+  }
+
+  .field {
+    gap: 2px;
+    padding-top: 7px;
+  }
+
+  .label {
+    font-size: 12px;
+  }
+
+  .value {
+    font-size: 14px;
   }
 
   .compare-wrap {
     max-height: none;
+    margin: 0 -10px;
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
   }
 
   .compare-table th,
   .compare-table td {
-    width: 260px;
-    min-width: 260px;
-    max-width: 260px;
+    width: 225px;
+    min-width: 225px;
+    max-width: 225px;
+    padding: 10px;
+    font-size: 13px;
   }
 
   .compare-table .field-head {
-    width: 118px;
-    min-width: 118px;
-    max-width: 118px;
+    width: 92px;
+    min-width: 92px;
+    max-width: 92px;
+    padding: 10px 8px;
+  }
+
+  .company-name {
+    font-size: 14px;
+  }
+
+  .company-meta {
+    font-size: 11px;
+  }
+
+  .empty {
+    padding: 24px 14px;
   }
 }

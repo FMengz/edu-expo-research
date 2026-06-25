@@ -3,7 +3,7 @@ const data = window.EXPO_DATA || [];
 const totals = window.EXPO_TOTALS || {};
 let activeIndex = -1;
 let query = "";
-let viewMode = "compare";
+let viewMode = window.matchMedia && window.matchMedia("(max-width: 760px)").matches ? "cards" : "compare";
 let searchScope = "global";
 
 const tabsEl = document.getElementById("tabs");
